@@ -1,5 +1,7 @@
 require("cocos2d")
-local GameEntity = class("GameEntity", cc.Node:create())
+local GameEntity = class("GameEntity", function()
+    return cc.Node:create()
+end)
 
 function GameEntity:ctor()
    self._model = nil

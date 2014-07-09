@@ -36,10 +36,21 @@ function MainMenuLayer:init()
     winSize = cc.Director:getInstance():getWinSize()
     
     --************ adds Plane ****************
---[[
-    plane =nil --Plane::create()
-    self:addChild(plane, 10);
-    self:scheduleUpdate();
+    self.plane = require("Plane").new()
+    self.plane:init()
+    self:addChild(self.plane, 10);
+    
+    ---------------------------
+    --update plane position
+    function update(dt)
+        self.pRate = self.pRate +0.01
+
+        visibleSize = cc.Director:getInstance():getVisibleSize()
+
+        self.plane:setPosition3D({x = visibleSize.width / 2 + 50, y = 480 - 20 * math.sin(1.05 * self.pRate), z = 0});
+    end
+    
+    self:scheduleUpdateWithPriorityLua(update, 0);
     
     --************ adds emission flare ****************    
     flare = cc.ParticleSystemQuad:create("missileFlare.plist")
@@ -48,11 +59,11 @@ function MainMenuLayer:init()
     originY = 159.0
     originZ = 9.0
     flare:setTotalParticles(50)
-    flare:setRotation3D({-originX,-originY,-originZ})
+    flare:setRotation3D({x=-originX,y=-originY,z=-originZ})
     flare:setPosition(-39,0)
     flare:setPositionType(2)
     flare:setStartColor({00,0.99,1,1})
-    plane:addChild(flare,-1)
+    self.plane:addChild(flare,-1)
     
     emis = cc.ParticleSystemQuad:create("menuEmission.plist")
     emis:setScale(3)
@@ -60,8 +71,8 @@ function MainMenuLayer:init()
     emis:setPosition(-40,0)
     emis:setPositionType(2)
     emis:setRotation(180)
-    plane:addChild(emis,-2)
---]]
+    self.plane:addChild(emis,-2)
+
     --************ adds vanishing ****************
     fileUtile = cc.FileUtils:getInstance()
     --plistData = fileUtile:getValueMapFromFile("vanishingPoint.plist")
@@ -133,14 +144,6 @@ function MainMenuLayer:init()
     
     return true;
      
-end
-
-
----------------------------
---@return # description
-function MainMenuLayer:update(dt)
-	self.pRate = self.pRate +0.01
-	--self.plane:setPosition3D(Vec3(visible_size_macro.width/2+50,480-20*sin(1.05*pRate),0));
 end
 
 return MainMenuLayer
