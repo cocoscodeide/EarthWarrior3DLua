@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Runtime.h"
 #include "ConfigParser.h"
+#include "lua_effect_sprite3d_auto.hpp"
 
 using namespace CocosDenshion;
 
@@ -59,8 +60,10 @@ bool AppDelegate::applicationDidFinishLaunching()
     stack->setXXTEAKeyAndSign("2dxLua", strlen("2dxLua"), "XXTEA", strlen("XXTEA"));
     
     //register custom function
-    //LuaStack* stack = engine->getLuaStack();
-    //register_custom_function(stack->getLuaState());
+    auto state = stack->getLuaState();
+    lua_getglobal(state, "_G");
+    register_all_effect_sprite3d(stack->getLuaState());
+    lua_pop(state, 1);
     
 #if (COCOS2D_DEBUG>0)
     if (startRuntime())

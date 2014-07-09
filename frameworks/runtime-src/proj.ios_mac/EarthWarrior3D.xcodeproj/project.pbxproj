@@ -76,6 +76,10 @@
 		50D7C96C17EBBEDF005D0B91 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96B17EBBEDF005D0B91 /* OpenGL.framework */; };
 		50D7C96E17EBBEE6005D0B91 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96D17EBBEE6005D0B91 /* AppKit.framework */; };
 		50D7C97017EBBEEC005D0B91 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96F17EBBEEC005D0B91 /* IOKit.framework */; };
+		AB5CEA40196D372400ED615B /* Sprite3DEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB5CEA3E196D372400ED615B /* Sprite3DEffect.cpp */; };
+		AB5CEA41196D372400ED615B /* Sprite3DEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB5CEA3E196D372400ED615B /* Sprite3DEffect.cpp */; };
+		AB5CEA4D196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB5CEA4B196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp */; };
+		AB5CEA4E196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB5CEA4B196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp */; };
 		C00FD4921938512100C6382D /* Landscape_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C00FD48A1938512100C6382D /* Landscape_png.cpp */; };
 		C00FD4931938512100C6382D /* Landscape_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C00FD48A1938512100C6382D /* Landscape_png.cpp */; };
 		C00FD4941938512100C6382D /* PlayDisable_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C00FD48B1938512100C6382D /* PlayDisable_png.cpp */; };
@@ -422,6 +426,10 @@
 		50D7C96B17EBBEDF005D0B91 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		50D7C96D17EBBEE6005D0B91 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50D7C96F17EBBEEC005D0B91 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		AB5CEA3E196D372400ED615B /* Sprite3DEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite3DEffect.cpp; path = ../Classes/Sprite3DEffect.cpp; sourceTree = "<group>"; };
+		AB5CEA3F196D372400ED615B /* Sprite3DEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sprite3DEffect.h; path = ../Classes/Sprite3DEffect.h; sourceTree = "<group>"; };
+		AB5CEA4B196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_effect_sprite3d_auto.cpp; sourceTree = "<group>"; };
+		AB5CEA4C196D46EE00ED615B /* lua_effect_sprite3d_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_effect_sprite3d_auto.hpp; sourceTree = "<group>"; };
 		C00FD48A1938512100C6382D /* Landscape_png.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Landscape_png.cpp; sourceTree = "<group>"; };
 		C00FD48B1938512100C6382D /* PlayDisable_png.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayDisable_png.cpp; sourceTree = "<group>"; };
 		C00FD48C1938512100C6382D /* PlayEnable_png.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayEnable_png.cpp; sourceTree = "<group>"; };
@@ -725,6 +733,16 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		AB5CEA4A196D46EE00ED615B /* auto */ = {
+			isa = PBXGroup;
+			children = (
+				AB5CEA4B196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp */,
+				AB5CEA4C196D46EE00ED615B /* lua_effect_sprite3d_auto.hpp */,
+			);
+			name = auto;
+			path = ../Classes/auto;
+			sourceTree = "<group>";
+		};
 		C00FD4891938512100C6382D /* runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +823,9 @@
 		F293BB7C15EB830F00256477 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AB5CEA4A196D46EE00ED615B /* auto */,
+				AB5CEA3E196D372400ED615B /* Sprite3DEffect.cpp */,
+				AB5CEA3F196D372400ED615B /* Sprite3DEffect.h */,
 				C00FD4891938512100C6382D /* runtime */,
 				C033B51A191B337200D06937 /* VisibleRect.cpp */,
 				C033B51B191B337200D06937 /* VisibleRect.h */,
@@ -1142,6 +1163,7 @@
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				C00FD4971938512100C6382D /* PlayEnable_png.cpp in Sources */,
+				AB5CEA4E196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp in Sources */,
 				C00FD4951938512100C6382D /* PlayDisable_png.cpp in Sources */,
 				C033B51D191B337200D06937 /* VisibleRect.cpp in Sources */,
 				C00FD49D1938512100C6382D /* Shine_png.cpp in Sources */,
@@ -1165,6 +1187,7 @@
 				3EB5152D19528284006966AA /* Protos.pb.cc in Sources */,
 				C00FD4931938512100C6382D /* Landscape_png.cpp in Sources */,
 				3EB5155F1952865D006966AA /* zero_copy_stream.cc in Sources */,
+				AB5CEA41196D372400ED615B /* Sprite3DEffect.cpp in Sources */,
 				3EB515671952865D006966AA /* atomicops_internals_x86_msvc.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1185,6 +1208,7 @@
 				C00FD4961938512100C6382D /* PlayEnable_png.cpp in Sources */,
 				3EB5152C19528284006966AA /* Protos.pb.cc in Sources */,
 				3EB515661952865D006966AA /* atomicops_internals_x86_msvc.cc in Sources */,
+				AB5CEA4D196D46EE00ED615B /* lua_effect_sprite3d_auto.cpp in Sources */,
 				3EB515641952865D006966AA /* repeated_field.cc in Sources */,
 				C00FD4941938512100C6382D /* PlayDisable_png.cpp in Sources */,
 				C00FD49C1938512100C6382D /* Shine_png.cpp in Sources */,
@@ -1192,6 +1216,7 @@
 				3EB515581952865D006966AA /* extension_set.cc in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				3EB5156C1952865D006966AA /* stringprintf.cc in Sources */,
+				AB5CEA40196D372400ED615B /* Sprite3DEffect.cpp in Sources */,
 				3EB515681952865D006966AA /* common.cc in Sources */,
 				C033B51C191B337200D06937 /* VisibleRect.cpp in Sources */,
 				3EB5155A1952865D006966AA /* generated_message_util.cc in Sources */,
