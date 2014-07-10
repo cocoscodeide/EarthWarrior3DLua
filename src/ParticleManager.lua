@@ -6,7 +6,7 @@ function ParticleManager:ctor()
     self.m_plistMap = {}
 end
 
-function ParticleManager:getInstance()
+function ParticleManager.getInstance()
     if ParticleManager.m_pInstance==nil then
         ParticleManager.m_pInstance = ParticleManager.new()
         return ParticleManager.m_pInstance
