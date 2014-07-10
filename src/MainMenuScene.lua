@@ -88,15 +88,19 @@ function MainMenuLayer:init()
     
     --************* adds start game ***********
     local function startgame(sender)
-        local function startgame_callback(node)
+        local function startgame_callback()
             AudioEngine.stopMusic();
-            
+            --require("")
+            LoadingScene = require("LoadingScene")
+            loadingScene = LoadingScene.createScene()
+            cc.Director:getInstance():replaceScene(loadingScene)
         end   
         self.startgame_item:runAction(
+            cc.Sequence:create(
             cc.ScaleTo:create(0.1, 1.4),
             cc.ScaleTo:create(0.1, 1.2),
             cc.ScaleTo:create(0.1, 1.3),
-            cc.CallFunc:create(startgame_callback)
+            cc.CallFunc:create(startgame_callback))
         )
     end
     start_normal = cc.Sprite:createWithSpriteFrameName("start_game.png")
@@ -121,10 +125,11 @@ function MainMenuLayer:init()
                 ));
         end   
         self.credits_item:runAction(
+            cc.Sequence:create(
             cc.ScaleTo:create(0.1, 0.8),
             cc.ScaleTo:create(0.1, 0.6),
             cc.ScaleTo:create(0.1, 0.7),
-            cc.CallFunc:create(credits_callback)
+            cc.CallFunc:create(license_callback))
         )
     end
     license_normal = cc.Sprite:createWithSpriteFrameName("license.png")
@@ -149,10 +154,11 @@ function MainMenuLayer:init()
             ));
         end   
         self.credits_item:runAction(
+            cc.Sequence:create(
             cc.ScaleTo:create(0.1, 0.8),
             cc.ScaleTo:create(0.1, 0.6),
             cc.ScaleTo:create(0.1, 0.7),
-            cc.CallFunc:create(credits_callback)
+            cc.CallFunc:create(credits_callback))
         )
     end
     credits_normal = cc.Sprite:createWithSpriteFrameName("credits.png")

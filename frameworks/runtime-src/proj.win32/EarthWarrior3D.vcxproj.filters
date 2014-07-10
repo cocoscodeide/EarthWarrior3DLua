@@ -16,6 +16,9 @@
     <Filter Include="Classes\runtime\protobuf-lite">
       <UniqueIdentifier>{28edb895-7c19-408b-abd6-130196087d96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\auto">
+      <UniqueIdentifier>{47d49147-c4dc-422a-bd39-c3ffd84475a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -106,6 +109,12 @@
     <ClInclude Include="..\Classes\protobuf-lite\google\protobuf\wire_format_lite_inl.h">
       <Filter>Classes\runtime\protobuf-lite</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Sprite3DEffect.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\auto\lua_effect_sprite3d_auto.hpp">
+      <Filter>Classes\auto</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -182,6 +191,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\protobuf-lite\google\protobuf\wire_format_lite.cc">
       <Filter>Classes\runtime\protobuf-lite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sprite3DEffect.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\auto\lua_effect_sprite3d_auto.cpp">
+      <Filter>Classes\auto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
