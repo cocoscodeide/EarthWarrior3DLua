@@ -1,4 +1,4 @@
-require("cocos2d")
+require("Cocos2d")
 
 local LicenseLayer = class("LicenseLayer", function()
     return cc.Layer:create()

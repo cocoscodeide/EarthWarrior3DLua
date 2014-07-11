@@ -1,5 +1,6 @@
 require("AirCraft")
 require("GameLayer")
+require("const")
 
 local AirCraft = class("Foldder", function()
     return require("AirCraft").new()
@@ -16,6 +17,7 @@ function Foldder:init()
         self._model:seScale(6)
         self:addChild(self._model)
         
+        self._type = EntityTypes.kEnemyFodder
         self._HP = 10
         self._radius = 30
         
@@ -47,19 +49,19 @@ end
 
 ---------------------------
 --@return #float description
-function getTurnRate()
+function Foldder:getTurnRate()
     return self._turn
 end
 
 ---------------------------
 -- set move mode
-function setMoveMode(moveMode)
+function Foldder:setMoveMode(moveMode)
 	self._moveMode = moveMode
 end
 
 ---------------------------
 --@return #int get move mode
-function getMoveMode()
+function Foldder:getMoveMode()
 	return self._moveMode
 end
 
