@@ -7,6 +7,7 @@ LOCAL_MODULE := cocos2dlua_shared
 LOCAL_MODULE_FILENAME := libcocos2dlua
 
 LOCAL_SRC_FILES := \
+../../Classes/auto/lua_effect_sprite3d_auto.cpp \
 ../../Classes/protobuf-lite/google/protobuf/io/coded_stream.cc \
 ../../Classes/protobuf-lite/google/protobuf/stubs/common.cc \
 ../../Classes/protobuf-lite/google/protobuf/extension_set.cc \
@@ -28,6 +29,7 @@ LOCAL_SRC_FILES := \
 ../../Classes/VisibleRect.cpp \
 ../../Classes/AppDelegate.cpp \
 ../../Classes/ConfigParser.cpp \
+../../Classes/Sprite3DEffect.cpp \
 lua/Runtime_android.cpp \
 lua/main.cpp
 
@@ -35,6 +37,7 @@ lua/main.cpp
 LOCAL_C_INCLUDES := \
 $(LOCAL_PATH)/../../Classes/protobuf-lite \
 $(LOCAL_PATH)/../../Classes/runtime \
+$(LOCAL_PATH)/../../Classes/auto \
 $(LOCAL_PATH)/../../Classes
 
 LOCAL_STATIC_LIBRARIES := curl_static_prebuilt
