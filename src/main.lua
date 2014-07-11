@@ -24,9 +24,10 @@ local function main()
     -- avoid memory leak
     collectgarbage("setpause", 100)
     collectgarbage("setstepmul", 5000)
-    cc.Director:getInstance():getOpenGLView():setDesignResolutionSize(640, 960, 2)
-	cc.FileUtils:getInstance():addSearchPath("src");
-    cc.FileUtils:getInstance():addSearchPath("res");
+    cc.Director:getInstance():getOpenGLView():setDesignResolutionSize(640, 960, 0)
+    cc.Director:getInstance():setDisplayStats(false)
+	cc.FileUtils:getInstance():addSearchPath("src")
+    cc.FileUtils:getInstance():addSearchPath("res")
     
     MainMenuLayer = require("MainMenuScene").new()
     MainMenuLayer:init()
