@@ -15,6 +15,7 @@ function FoldderLeader:init()
         self._model:seScale(8)
         self:addChild(self._model)
 
+        self._type = EntityTypes.kEnemyFodderL
         self._HP = 20
         self._radius = 35
 
@@ -28,7 +29,7 @@ end
 --reset
 function FoldderLeader:reset()
     -- call AirCraft:reset()
-    getmetatable(self):reset()
+    getmetatable(getmetatable(self)):reset()
 
     self._HP = 20
 end

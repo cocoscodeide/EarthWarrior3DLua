@@ -1,4 +1,6 @@
-require("cocos2d")
+require("Cocos2d")
+require("PublicApi")
+
 local GameEntity = class("GameEntity", function()
     return cc.Node:create()
 end)
@@ -49,7 +51,7 @@ end
 ---------------------------
 -- forward
 function GameEntity:forward(dist)
-    local f = self:getRotation() * 0.01745329252
+    local f = PublicApi.degreeToRadians(self:getRotation())
     
     local x, y = self:getPosition()
     self:setPosition(cc.p(x + math.sin(f) * dist, y + math.cos(f) * dist))

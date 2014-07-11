@@ -2,7 +2,7 @@
 
 require("Cocos2d")
 require("AudioEngine")
-
+require("LicenseLayer")
 local MainMenuLayer = class("MainMenuLayer",function()
     return cc.Layer:create()
 end)
@@ -88,7 +88,20 @@ function MainMenuLayer:init()
     
     --************* adds start game ***********
     local function startgame(sender)
-        
+        local function startgame_callback()
+            AudioEngine.stopMusic();
+            --require("")
+            LoadingScene = require("LoadingScene")
+            loadingScene = LoadingScene.createScene()
+            cc.Director:getInstance():replaceScene(loadingScene)
+        end   
+        self.startgame_item:runAction(
+            cc.Sequence:create(
+            cc.ScaleTo:create(0.1, 1.4),
+            cc.ScaleTo:create(0.1, 1.2),
+            cc.ScaleTo:create(0.1, 1.3),
+            cc.CallFunc:create(startgame_callback))
+        )
     end
     start_normal = cc.Sprite:createWithSpriteFrameName("start_game.png")
     start_pressed = cc.Sprite:createWithSpriteFrameName("start_game.png")
@@ -99,7 +112,24 @@ function MainMenuLayer:init()
     
     --************* license *******************
     local function license(sender)
-        
+        local function license_callback(node)
+            license = LicenseLayerFactory:create("LICENSE_03.png");
+            license:setAnchorPoint(cc.p(0.5,0.5))
+            license:setPosition(cc.p(self.visibleSize.width/2, self.visibleSize.height/2));
+            self:addChild(license,20);
+            license:runAction(
+                cc.Sequence:create(
+                    cc.ScaleTo:create(0.2, 1.1), 
+                    cc.ScaleTo:create(0.1, 0.9),
+                    cc.ScaleTo:create(0.1, 1.0)
+                ));
+        end   
+        self.license_item:runAction(
+            cc.Sequence:create(cc.ScaleTo:create(0.1, 0.8),
+                cc.ScaleTo:create(0.1, 0.6),
+                cc.ScaleTo:create(0.1, 0.7),
+                cc.CallFunc:create(license_callback))          
+        )
     end
     license_normal = cc.Sprite:createWithSpriteFrameName("license.png")
     license_pressed = cc.Sprite:createWithSpriteFrameName("license.png")
@@ -107,15 +137,15 @@ function MainMenuLayer:init()
     self.license_item:registerScriptTapHandler(license)
     self.license_item:setPosition(visibleSize.width/2-200,100);
     self.license_item:setScale(0.7);
-    
+
      --************* credits *******************
     local function credits(sender)
         local function credits_callback(node)
-            license = nil --LicenseLayer::create("credits_03.png");
-            license:setAnchorPoint(cc.p(0.5,0.5))
-            license:setPosition(cc.p(self.visibleSize.width/2, self.visibleSize.height/2));
-            self:addChild(license,20);
-            license:runAction(
+            credit = LicenseLayerFactory:create("credits_03.png");
+            credit:setAnchorPoint(cc.p(0.5,0.5))
+            credit:setPosition(cc.p(self.visibleSize.width/2, self.visibleSize.height/2));
+            self:addChild(credit,20);
+            credit:runAction(
                 cc.Sequence:create(
                 cc.ScaleTo:create(0.2, 1.1), 
                 cc.ScaleTo:create(0.1, 0.9),
@@ -123,10 +153,11 @@ function MainMenuLayer:init()
             ));
         end   
         self.credits_item:runAction(
+            cc.Sequence:create(
             cc.ScaleTo:create(0.1, 0.8),
             cc.ScaleTo:create(0.1, 0.6),
             cc.ScaleTo:create(0.1, 0.7),
-            cc.CallFunc:create(credits_callback)
+            cc.CallFunc:create(credits_callback))
         )
     end
     credits_normal = cc.Sprite:createWithSpriteFrameName("credits.png")
