@@ -142,3 +142,4 @@ userconf.ini
 frameworks/runtime-src/proj.ios_mac/build
 frameworks/cocos2d-x/build/build
 frameworks/cocos2d-x/cocos/scripting/lua-bindings/proj.ios_mac/build
+publish
