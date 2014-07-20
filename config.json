@@ -4,7 +4,9 @@
     "name": "EarthWarrior3D",
     "width": 533,
     "height": 800,
-    "entry": "src/main.lua"
+    "entry": "src/main.lua",
+    "consolePort": 6010,
+    "debugPort": 0
   },
   "simulator_screen_size": [
     {
