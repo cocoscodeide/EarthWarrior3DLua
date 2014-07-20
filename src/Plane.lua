@@ -17,7 +17,11 @@ function Plane:init()
     self.originY = 159.0
     self.originZ = 9.0
     
-    self._model = cc.EffectSprite3D:createFromObjFileAndTexture("playerv002.c3b", "playerv002_256.png");
+    --TODO use EffectSprite3D class instead(zhanghh)
+--    self._model = require("EffectSprite3D").new()
+--    self._model:init("playerv002.c3b", "playerv002_256.png");
+    self._model = cc.Sprite3D:create("playerv002.c3b")
+    self._model:setTexture("playerv002_256.png")
     
     if (self._model ~= nil) then
         self._model:setScale(55)
